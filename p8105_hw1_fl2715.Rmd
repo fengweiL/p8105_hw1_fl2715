@@ -39,3 +39,19 @@ Finally, we export the above scatterplot to our project directory.
 ggsave("scatterplot_flipper_vs_bill.png")
 ```
 
+# Problem 2
+## *2.1 Create the data frame*
+We create a data frame that satisfies the requests for problem 2. Firstly, for the reproducibility of the code, we set the seed as 1234. Variable names are defined as *'normal_sample'*, *'logical_vector'*, *'character_vector'*, *'factor_vector'* for the variables random sample, logical vector, character vector, and factor vector respectively. A part of this dataframe is as follows.
+
+```{r, echo=FALSE}
+set.seed(1234)
+df = data.frame(
+  normal_sample = rnorm(10), 
+  logical_vector = rnorm(10) > 0,  
+  character_vector = rep(letters[1:10]), 
+  factor_vector = factor(rep(c("Level1", "Level2", "Level3"), length.out = 10,replace = TRUE))
+)
+# View the data frame
+print(head(df, row.names = FALSE))
+```
+
