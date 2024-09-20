@@ -8,3 +8,10 @@ Firstly, we load necessary library *tidyverse* for Problem 1 and 2.
 ```{r, include=FALSE}
 library(tidyverse)
 ```
+
+# Problem 1
+## *1.1 Load Penguins  Dataset*
+We load the "penguins" dataset from the package "palmerpenguins".
+```{r, include=FALSE}
+data("penguins", package = "palmerpenguins")
+```
