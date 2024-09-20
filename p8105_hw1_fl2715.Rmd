@@ -3,3 +3,8 @@ title: "p8105_hw1_fl2715"
 author: "Fengwei Lei"
 output: github_document
 ---
+
+Firstly, we load necessary library *tidyverse* for Problem 1 and 2.
+```{r, include=FALSE}
+library(tidyverse)
+```
