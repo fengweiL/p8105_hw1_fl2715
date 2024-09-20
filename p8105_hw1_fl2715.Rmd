@@ -18,3 +18,24 @@ data("penguins", package = "palmerpenguins")
 
 ## *1.2 Description of the Penguins Dataset*
 The penguins dataset contains data on three penguin species (`r unique(pull(penguins,species))`), which were collected from 3 islands (`r unique(pull(penguins,island))`) between `r min(pull(penguins,year))` and `r max(pull(penguins,year))`. The other important variables include bill length (bill_length_mm), bill depth (bill_depth_mm), flipper length (flipper_length_mm) and body mass (body_mass_g). This dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. And the mean flipper length of the penguins is `r mean(pull(penguins,flipper_length_mm), na.rm = TRUE)` mm.
+
+## *1.3 Scatterplot*
+In this part, we make a scatterplot of *'flipper_length_mm'* vs *'bill_length_mm'*. First, to avoid errors caused by missing values during plotting, we remove the observations with missing data from the dataset. We use flipper length (mm) as the y-axis and bill length (mm) as the x-axis to create a scatter plot, and we use different colors to distinguish between different penguin species. In this way, we obtain the following scatter plot and named it *'Scatterplot of Flipper Length vs Bill Length of Penguins'*.
+
+```{r, echo=FALSE}
+penguins |> 
+  drop_na(bill_length_mm, flipper_length_mm) |> 
+  ggplot(aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point() +
+  labs(title = "Scatterplot of Flipper Length vs Bill Length of Penguins",
+       x = "Bill Length (mm)",
+       y = "Flipper Length (mm)")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+## *1.4 Export the Plot*
+Finally, we export the above scatterplot to our project directory.
+```{r, include=FALSE}
+ggsave("scatterplot_flipper_vs_bill.png")
+```
+
