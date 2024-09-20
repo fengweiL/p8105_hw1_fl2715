@@ -15,3 +15,6 @@ We load the "penguins" dataset from the package "palmerpenguins".
 ```{r, include=FALSE}
 data("penguins", package = "palmerpenguins")
 ```
+
+## *1.2 Description of the Penguins Dataset*
+The penguins dataset contains data on three penguin species (`r unique(pull(penguins,species))`), which were collected from 3 islands (`r unique(pull(penguins,island))`) between `r min(pull(penguins,year))` and `r max(pull(penguins,year))`. The other important variables include bill length (bill_length_mm), bill depth (bill_depth_mm), flipper length (flipper_length_mm) and body mass (body_mass_g). This dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. And the mean flipper length of the penguins is `r mean(pull(penguins,flipper_length_mm), na.rm = TRUE)` mm.
