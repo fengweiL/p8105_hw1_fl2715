@@ -63,3 +63,16 @@ mean_logical=mean(pull(df, logical_vector))
 mean_character=mean(pull(df, character_vector))
 mean_factor=mean(pull(df, factor_vector))
 ```
+
+## *2.3 Numeric Conversion*
+In this part, we convert logical, character, and factor vectors to numeric.
+```{r, echo=TRUE, warning=FALSE}
+numeric_logical=as.numeric(pull(df, logical_vector))
+numeric_character=as.numeric(pull(df, character_vector))
+numeric_factor=as.numeric(pull(df, factor_vector))
+```
+For logical variable, it is converted into 0-1 variable, where 0=FALSE and 1=TRUE. We could take the mean, and it can directly calculate the proportion of TRUE values.
+
+For character variable, results shows **NA** and R conveys warning. And it will fail to make any numerical operations based on this data (such as calculating the mean).
+
+For factor variable, it is converted into the factor’s underlying numeric codes, where '1=Level 1', '2=Level 2' and '3=Level 3'. Although we can compute the mean, the result reflects the mean of the numeric codes rather than the meaning of the categories themselves. So this result is meaningless.
