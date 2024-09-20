@@ -55,3 +55,11 @@ df = data.frame(
 print(head(df, row.names = FALSE))
 ```
 
+## *2.2 Compute Means*
+We use the pull funtion to calculate the means of variables. The results shows that the *'normal'* and *'logical'* variable work, but the *'character'* and *'factor'* varibale do not work.
+```{r, include=FALSE}
+mean_normal=mean(pull(df, normal_sample) )
+mean_logical=mean(pull(df, logical_vector))
+mean_character=mean(pull(df, character_vector))
+mean_factor=mean(pull(df, factor_vector))
+```
